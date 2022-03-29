@@ -14,6 +14,7 @@ const Quiz = ({navigation}) => {
   const [question, setQuestion] = useState();
   const [options, setOptions] = useState([]);
   const [score, setScore] = useState(0);
+  const [btnColor, setBtnColor] = useState('#1A759F');
   const getQuiz= async()=>{
     const url='https://opentdb.com/api.php?amount=10&category=17&difficulty=medium&type=multiple&encode=url3986';
     const res = await fetch(url);
@@ -41,11 +42,12 @@ const Quiz = ({navigation}) => {
   const handleSelectedOption =(_option)=>{
     if(_option==question[ques].correct_answer){
       setScore(score+10)
+      btnColor === "#1A759F" ? setBtnColor("green") : setBtnColor("red") 
     }
-    if(ques!=9){
-      setQues(ques+1)
-      setOptions(generateOptionsAndShuffle(question[ques+1]))
-    }
+    // if(ques!=9){
+    //   setQues(ques+1)
+    //   setOptions(generateOptionsAndShuffle(question[ques+1]))
+    // }
   }
 
   const handleShowResult = ()=>{
@@ -84,9 +86,9 @@ const Quiz = ({navigation}) => {
         </TouchableOpacity>
       </View>
       <View style={styles.bottom}>
-        <TouchableOpacity style={styles.button} onPress={handlePrevPress}>
+        {ques!=0 &&<TouchableOpacity style={styles.button} onPress={handlePrevPress}>
           <Text style={styles.buttonText}>PREV</Text>
-        </TouchableOpacity>
+        </TouchableOpacity>}
         {ques!=9 &&<TouchableOpacity style={styles.button} onPress={handleNextPress}>
           <Text style={styles.buttonText}>SKIP</Text>
         </TouchableOpacity>}
