@@ -1,20 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { NavigationContainer } from '@react-navigation/native'
+import { View, Text, StyleSheet } from 'react-native'
+import MyStack from './navigation'
+// import {StateProvider} from './src/stateProvider';
+import Home from './screens/home'
+import Quiz from './screens/quiz'
+import Result from './screens/result'
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+const App = () => {
+  return(
+    // <StateProvider initialState={initialState} reducer={reducer}>
+    <NavigationContainer>
+      <MyStack />
+    </NavigationContainer>
+    // </StateProvider>
+  )
 }
+export default App
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  container:{
+    paddingTop: 40,
+    paddingHorizontal: 16
+  }
+})
