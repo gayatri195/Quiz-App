@@ -3,7 +3,8 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 
 const Result = ({route,navigation}) => {
   const {score} = route.params
-  const resultBanner=score>40?"" : ""
+  const resultBanner=score>30?"https://cdni.iconscout.com/illustration/premium/thumb/men-celebrating-victory-4587301-3856211.png" 
+                          : "https://cdni.iconscout.com/illustration/free/thumb/concept-about-business-failure-1862195-1580189.png"
   return(
     <View style={styles.container}>
       <View style={styles.resultContainer}>
@@ -47,7 +48,8 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     paddingVertical:16,
     justifyContent:"space-between",
-    flexDirection:"row"
+    flexDirection:"row",
+    marginTop: 180
   },
   button:{
     backgroundColor: '#1A759F',
@@ -56,8 +58,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     alignItems:'center',
     alignItems:'center',
-    maxWidth:'100%',
-    marginTop: 230
+    maxWidth:'100%'
   },
   buttonText:{
     fontSize: 18,

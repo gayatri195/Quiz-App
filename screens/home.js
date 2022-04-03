@@ -6,8 +6,10 @@ const Home = ({navigation}) => {
   return(
     <View style={styles.container}>
       <Title />
-      <View>
-        <Image source={{uri: 'https://storyset.com/illustration/raising-hand/rafiki'}} style={styles.banner}
+      <View style={styles.bannerContainer}>
+        <Image source={{uri: 'https://cdni.iconscout.com/illustration/premium/thumb/giving-different-feedback-and-review-in-websites-2112230-1779230.png'}} 
+        style={styles.banner}
+        resizeMode="contain"
         />
       </View>
       <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Quiz")}} style={styles.button}>
@@ -22,14 +24,19 @@ export default Home
 
 const styles = StyleSheet.create({
   banner:{
-    height: 100,
-    width: 100,
-    flex: 1
+    height: 300,
+    width: 300,
+    marginBottom:300
   },
   container:{
-    paddingHorizontal: 40,
+    paddingHorizontal: 20,
     paddingTop: 40,
     height: '100%',
+  },
+  bannerContainer:{
+    flex:1,
+    justifyContent:'center',
+    alignItems:'center'
   },
   button:{
     width: '100%',
@@ -38,6 +45,7 @@ const styles = StyleSheet.create({
     borderRadius: 26,
     alignItems: 'center',
     justifyContent:'center',
+    marginBottom:25
   },
   buttonText:{
     fontSize: 24,
